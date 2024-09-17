@@ -46,7 +46,7 @@ export default function ExpenseDetail({expense}: ExpenseDetailProps) {
                 leadingActions={leadingActions()}
                 trailingActions={trailingActions()}
             >
-                <div className="w-full bg-white shadow-lg p-10 border-b border-gray-200 flex gap-5 items-center mt-2">
+                <div className="w-full bg-white shadow-2xl p-10 border-b border-gray-200 flex gap-5 items-center mt-2 rounded-lg">
                     {/* Mostrar la imagen de la categoria */}
                     <div>
                         <img
