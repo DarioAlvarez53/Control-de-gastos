@@ -6,7 +6,7 @@ import "react-circular-progressbar/dist/styles.css"
 
 export default function BudgetTracker() {
 
-    const {state, totalExpenses, remainingBudget} = useBudget()
+    const {state, totalExpenses, remainingBudget, dispatch} = useBudget()
 
     //Calculando porcentaje para la grafica
     const percetnage = +((totalExpenses / state.budget) * 100).toFixed(2)
@@ -30,6 +30,7 @@ export default function BudgetTracker() {
             </div>
             <div className="flex flex-col justify-center items-center gap-8">
                 <button
+                    onClick={() => dispatch({type: 'reset-app'})}
                     type="button"
                     className="bg-red-600 w-full p-2 text-white uppercase font-bold rounded-lg"
                 >
