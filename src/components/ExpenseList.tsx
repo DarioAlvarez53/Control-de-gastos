@@ -6,15 +6,18 @@ export default function ExpenseList() {
 
     const { state } = useBudget()
 
+    
+    const filterExpense = state.currentCategory ? state.expenses.filter(expense => expense.category === state.currentCategory) : state.expenses
+    
     //Mostrar un mensaje que diga no hay gastos o muestre la lista de gastos
-    const isEmpty = useMemo(() => state.expenses.length === 0, [state.expenses])
+    const isEmpty = useMemo(() => filterExpense.length === 0, [filterExpense])
 
     return (
         <div className="mt-10">
-            {isEmpty ? <p className="text-gray-600 text-2xl font-bold">No hay gastos</p> : (
+            {isEmpty ? <p className="text-gray-600 text-2xl font-bold text-center">No hay gastos</p> : (
                 <>
-                    <p className="text-gray-600 text-2xl font-bold my-5">Listado de gastos</p>
-                    {state.expenses.map( expense => (
+                    <p className="text-gray-600 text-2xl font-bold my-5 text-center">Listado de gastos</p>
+                    {filterExpense.map( expense => (
                         <ExpenseDetail 
                             key={expense.id}
                             expense={expense}
